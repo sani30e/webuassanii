@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Toko Furniture Vintage</title>
+    <style>
+        /* CSS Styles */
+        body {
+            margin: 0;
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+        }
+
+        header {
+            background: #4e4e4e;
+            padding: 20px;
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .menu-toggle {
+            display: none;
+        }
+
+        nav {
+            display: flex;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            padding: 10px;
+            margin-left: 20px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            background-color: #333;
+            border-radius: 5px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background-image: url('https://via.placeholder.com/1920x800/8a4d3b/ffffff?text=Vintage+Furniture');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .hero h1 {
+            font-size: 3em;
+            margin: 0;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            margin: 20px 0;
+        }
+
+        .hero .btn {
+            padding: 15px 30px;
+            background-color: #b08d57;
+            color: white;
+            text-decoration: none;
+            font-size: 1.1em;
+            border-radius: 5px;
+            transition: 0.3s;
+        }
+
+        .hero .btn:hover {
+            background-color: #a87852;
+        }
+
+        /* About Section */
+        .about {
+            background-color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .about img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+        }
+
+        .about h2 {
+            margin-top: 20px;
+            font-size: 2.5em;
+        }
+
+        .about p {
+            font-size: 1.1em;
+            margin: 20px auto;
+            width: 80%;
+        }
+
+        /* Products Section */
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px;
+            padding: 50px 20px;
+            background-color: #f9f9f9;
+        }
+
+        .product-item {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            position: relative;
+        }
+
+        .product-item img {
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        .product-item h3 {
+            margin: 15px 0;
+            font-size: 1.5em;
+        }
+
+        .product-item p {
+            font-size: 1.1em;
+            color: #b08d57;
+        }
+
+        .product-item .btn-cart {
+            margin-top: 15px;
+            padding: 10px 20px;
+            background-color: #b08d57;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            display: inline-block;
+            transition: 0.3s;
+        }
+
+        .product-item .btn-cart:hover {
+            background-color: #a87852;
+        }
+
+        /* Promo Badge */
+        .promo-badge {
+            background-color: #e74c3c;
+            color: white;
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-size: 1em;
+            font-weight: bold;
+            position: absolute;
+            top: 10px;
+            left: 10px;
+        }
+
+        /* Original Price */
+        .original-price {
+            text-decoration: line-through;
+            color: #777;
+            font-size: 1.1em;
+        }
+
+        /* Promo Price */
+        .promo-price {
+            color: #e74c3c;
+            font-size: 1.3em;
+            font-weight: bold;
+        }
+
+        /* Why Us Section */
+        .why-us {
+            background-color: #4e4e4e;
+            color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .why-us h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+        }
+
+        .why-us ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .why-us li {
+            margin-bottom: 15px;
+            font-size: 1.2em;
+        }
+
+        /* Contact Section */
+        .contact {
+            background-color: white;
+            padding: 50px 20px;
+            text-align: center;
+        }
+
+        .contact form {
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .contact input,
+        .contact textarea {
+            width: 100%;
+            padding: 10px;
+            margin: 10px 0;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contact button {
+            padding: 10px 20px;
+            background-color: #b08d57;
+            color: white;
+            font-size: 1.1em;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
+
+        .contact button:hover {
+            background-color: #a87852;
+        }
+
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+
+        /* Mobile Responsive */
+        @media (max-width: 768px) {
+            nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                background-color: #333;
+                position: absolute;
+                top: 0;
+                left: 0;
+                height: 100vh;
+                justify-content: center;
+                text-align: center;
+            }
+
+            nav a {
+                margin: 15px 0;
+            }
+
+            .menu-toggle {
+                display: block;
+                font-size: 2em;
+                cursor: pointer;
+                color: white;
+            }
+
+            .hero h1 {
+                font-size: 2em;
+            }
+
+            .hero p {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <h1>Vintage Furnitures</h1>
+        </div>
+        <span class="menu-toggle" onclick="toggleMenu()">&#9776;</span>
+        <nav id="menu">
+            <a href="#home">Beranda</a>
+            <a href="#about">Tentang</a>
+            <a href="#products">Produk</a>
+            <a href="#why-us">Mengapa Kami</a>
+            <a href="#contact">Kontak</a>
+            <a href="javascript:void(0);" id="cart-link" onclick="toggleCart()">Keranjang (<span id="cart-count">0</span>)</a>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <h1>Selamat datang di Toko Furnitur Vintage</h1><br><br>
+        <p>Temukan keanggunan abadi untuk rumah Anda dengan koleksi vintage kami</p>
+        <a href="#products" class="btn">Telusuri Produk Kami</a>
+    </section>
+    
+    <section class="about" id="about">
+        <img src="pp.jpg" alt="Profile Picture">
+        <h2> Tentang Saya</h2>
+        <p>Halo! Saya Sani Aliyah, seorang desainer furnitur yang penuh semangat. Saya mengkhususkan diri dalam menciptakan furnitur bergaya vintage yang memadukan fungsionalitas modern dengan keindahan klasik.</p>
+        <p><strong>NIM:</strong> 222303021</p>
+        <p><strong>Address:</strong> Jl. Vintage No. 123, Bandung</p>
+    </section>
+
+    <!-- Products Section -->
+    <section class="products" id="products">
+        <h2>Our Products</h2>
+        <div class="product-item">
+            <img src="sofaa.png" alt="Product 1">
+            <h3>Vintage Chair</h3>
+            <p class="price">
+                <span class="original-price">Rp. 1,500,000</span>
+                <span class="promo-price">Rp. 1,200,000</span>
+            </p>
+            <span class="promo-badge">Promo</span>
+            <a href="#" class="btn-cart">Add to Cart</a>
+        </div>
+        <div class="product-item">
+            <img src="mejamakan.jpg" alt="Product 2">
+            <h3>Wooden Table</h3>
+            <p class="price">Rp. 2,000,000</p>
+            <a href="#" class="btn-cart">Add to Cart</a>
+        </div>
+        <div class="product-item">
+            <img src="lampu.png" alt="Product 3">
+            <h3>Antique Lamp</h3>
+            <p class="price">Rp. 800,000</p>
+            <a href="#" class="btn-cart">Add to Cart</a>
+        </div>
+        <div class="product-item">
+            <img src="rb.jpg" alt="Product 4">
+            <h3>Wooden Bookshelf</h3>
+            <p class="price">
+                <span class="original-price">Rp. 1,200,000</span>
+                <span class="promo-price">Rp. 1,000,000</span>
+            </p>
+            <span class="promo-badge">Promo</span>
+            <a href="#" class="btn-cart">Add to Cart</a>
+        </div>
+        <div class="product-item">
+            <img src="k.jpg" alt="Product 5">
+            <h3>Vintage Mirror</h3>
+            <p>Price: Rp. 1,000,000</p>
+            <a href="#" class="btn-cart">Add to Cart</a>
+        </div>
+        <div class="product-item">
+            <img src="jm.jpg" alt="Product 6">
+            <h3>Antique Clock</h3>
+            <p>Price: Rp. 750,000</p>
+            <a href="#" class="btn-cart">Add to Cart</a>
+        </div>
+        <div class="product-item">
+            <img src="mk.jpg" alt="Product 7">
+            <h3>Wooden Cabinet</h3>
+            <p>Price: Rp. 2,500,000</p>
+            <a href="#" class="btn-cart">Add to Cart</a>
+        </div>
+        <div class="product-item">
+            <img src="mr.jpg" alt="Product 8">
+            <h3>Anity Table</h3>
+            <p>Price: Rp. 3,000,000</p>
+            <a href="#" class="btn-cart">Add to Cart</a>
+        </div>
+        <div class="product-item">
+            <img src="KR.jpg" alt="Product 9">
+            <h3>Classic Armchair</h3>
+            <p>Price: Rp. 1,400,000</p>
+            <a href="#" class="btn-cart">Add to Cart</a>
+        </div>
+        <div class="product-item">
+            <img src="KP.jpg" alt="Product 10">
+            <h3>Vintage Rug</h3>
+            <p>Price: Rp. 1,800,000</p>
+            <a href="#" class="btn-cart">Add to Cart</a>
+        </div>
+    
+
+    </section>
+
+    <!-- Why Us Section -->
+    <section class="why-us" id="why-us">
+        <h2>"Mengapa Memilih Kami?"</h2>
+        <ul>
+            <li>Furnitur vintage berkualitas tinggi</li>
+            <li>Desain unik yang mencolok</li>
+            <li>Harga terjangkau</li>
+            <li>Pengiriman cepat dan dapat diandalkan</li>
+        </ul>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <h2>Hubungi Kami</h2>
+        <form action="#">
+            <input type="text" name="name" placeholder="Nama" required>
+            <input type="email" name="email" placeholder="Email" required>
+            <textarea name="message" rows="5" placeholder="Pesan" required></textarea>
+            <button type="submit">Kirim Pesan</button>
+        </form>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2024 Vintage Furnitures | All Rights Reserved</p>
+    </footer>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.getElementById('menu');
+            menu.style.display = (menu.style.display === "flex") ? "none" : "flex";
+        }
+    </script>
+</body>
+
+</html>
